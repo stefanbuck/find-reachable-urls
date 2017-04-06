@@ -28,6 +28,29 @@ findReachableUrls(urls)
   })
 ```
 
+### findReachableUrls(urls, [options], [callback])
+
+Returns a Promise with all reachable urls.
+
+#### urls
+
+Type: `string`, `array`
+
+The URL(s) to check.
+
+#### options
+
+Type: `object`
+
+##### firstMatch
+
+Type: `boolean`
+
+Default: `false`
+
+If `true` it returns the first reachable url and stops any further requests.
+
+
 ## Tests
 
 ```sh

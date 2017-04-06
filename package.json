@@ -4,6 +4,7 @@
   "description": "Passes back all URLs which respond with status code 200.",
   "main": "index.js",
   "dependencies": {
+    "async": "^2.3.0",
     "heads": "^1.2.0",
     "pify": "^2.3.0"
   },
