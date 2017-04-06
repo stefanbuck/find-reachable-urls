@@ -8,7 +8,7 @@ const urls = [
 ]
 
 test('findReachableUrls', function (t) {
-  t.plan(5)
+  t.plan(6)
 
   findReachableUrls(urls, function(err, result) {
     t.deepEqual(result, [
@@ -38,5 +38,11 @@ test('findReachableUrls', function (t) {
     t.deepEqual(result,
       'https://google.com'
     , 'returns the first reachable url')
+  })
+
+  findReachableUrls(urls[1], {firstMatch: true}).then(function(result) {
+    t.deepEqual(result,
+      undefined
+    , 'returns undefined if none of the urls is reachable')
   })
 })

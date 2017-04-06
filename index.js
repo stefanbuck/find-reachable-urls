@@ -22,17 +22,13 @@ function findReachableUrls(urls, options, callback) {
 }
 
 function getFirst(urls, callback) {
-  const testFn = (code) => code !== 200;
-
-  let url;
-  const doRequest = (callback) => {
-    url = urls.shift();
-    heads(url, callback);
+  const doRequest = (url, next) => {
+    heads(url, (err, code) => {
+        next(err, code === 200);
+    });
   }
 
-  async.doWhilst(doRequest, testFn, () => {
-    callback(null, url);
-  });
+  async.detectSeries(urls, doRequest, callback);
 }
 
 function getAll(urls, callback) {

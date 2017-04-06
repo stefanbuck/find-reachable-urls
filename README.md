@@ -48,7 +48,7 @@ Type: `boolean`
 
 Default: `false`
 
-If `true` it returns the first reachable url and stops any further requests.
+If `true` it returns the first reachable url and stops any further requests. If none of the urls is reachable it returns `undefined`.
 
 
 ## Tests
